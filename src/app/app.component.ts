@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Book } from './book/book.model';
- 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

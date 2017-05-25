@@ -14,4 +14,4 @@
   <button (click)="addBook(title, link)" class="ui positive right floated button" type="submit">Submit Book</button>
 </form>
 
-  <app-book></app-book>
+  <app-book *ngFor="let bookItem of books" [book]="bookItem"></app-book>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Book } from './book.model'
 
 @Component({
   selector: 'app-book',
@@ -9,23 +10,18 @@ import { Component, OnInit } from '@angular/core';
   }
 })
 export class BookComponent implements OnInit {
-  votes: number;
-  title: string;
-  link: string;
+  @Input() book: Book;
 
   constructor() {
-    this.title = 'Eloquent JavaScript';
-    this.link = 'http://eloquentjavascript.net/';
-    this.votes = 37;
   }
 
   voteUp(): boolean{
-    this.votes  += 1;
+    this.book.voteUp();
     return false;
   }
 
   voteDown(): boolean{
-    this.votes  -= 1;
+    this.book.voteDown();
     return false;
   }
 

@@ -11,14 +11,19 @@ export class AppComponent {
 
   constructor() {
     this.books = [
-      new Book('acd', 'adf', 0),
-      new Book('addsdsdscd', 'adf', 5),
-      new Book('acdd', 'adf', 10)
+      new Book('acd', 'http://angular.io/', 0),
+      new Book('addsdsdscd', 'http://angular.io/', 5),
+      new Book('acdd', 'http://angular.io/', 10)
     ];
   }
 
-  addBook(title: HTMLInputElement, link: HTMLInputElement): boolean {
-    console.log(`Title: ${title.value} and Link: ${link.value}`);
-    return false;
+  addBook(title: HTMLInputElement, link: HTMLInputElement) {
+    this.books.push(new Book(title.value, link.value, 0));
+    title.value = '';
+    link.value = '';
+  }
+
+  sortedBooks(): Book[] {
+    return this.books.sort((a: Book, b: Book) => b.votes - a.votes);
   }
 }

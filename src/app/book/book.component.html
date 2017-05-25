@@ -9,6 +9,7 @@
   <a class="ui large header" href="{{ book.link }}">
     {{ book.title }}
   </a>
+  <div class="meta">({{ book.domain() }})</div>
   <ul class="ui big horizontal list voters">
     <li class="item">
       <a href (click)="voteUp()">
